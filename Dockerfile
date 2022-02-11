@@ -18,7 +18,7 @@ RUN npm install
 RUN npm install -g
 RUN npm install --save-dev @testing-library/react
 COPY . .
-# CMD [ "npm", "test", "--", "--watchAll=false" ]
+CMD [ "npm", "test", "--", "--watchAll=false" ]
 
 # FROM base as prod
 # RUN npm ci --production
