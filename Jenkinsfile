@@ -4,13 +4,13 @@ pipeline {
     registryCredential = 'yenigul-dockerhub'
     dockerImage = ''
   }
-  // agent any
-  agent {
-        dockerfile {
-            filename 'Dockerfile'
-            dir '.'
-        }
-    }
+  agent any
+  // agent {
+  //       dockerfile {
+  //           filename 'Dockerfile'
+  //           dir '.'
+  //       }
+  //   }
   stages {
     stage('Building and Running test image') {
       steps{
