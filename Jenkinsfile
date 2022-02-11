@@ -12,12 +12,25 @@ pipeline {
   //       }
   //   }
   stages {
-    stage('Building and Running test image') {
+    stage('Building test image') {
       steps{
           sh 'docker build . -t task_manager_react_app'
+      }
+    }
+    stage('Running test image') {
+      steps{
           sh 'docker run -p "8081:8081" task_manager_react_app'
-          // sh 'docker-compose up -d --build'
-          // sh "npm test -- --watchAll=false"
+      }
+    }
+    stage('Release') {
+      steps{
+          sh 'echo The app is to be released here'
+      }
+    }
+    
+    stage('Deploy approval (acceptance testing)'){
+      steps{
+        input "Deploy to prod?"
       }
     }
 
