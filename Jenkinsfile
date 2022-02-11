@@ -4,11 +4,18 @@ pipeline {
     registryCredential = 'yenigul-dockerhub'
     dockerImage = ''
   }
-  agent any
+  // agent any
+  agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
+        }
+    }
   stages {
     stage('Building and Running test image') {
       steps{
-          sh 'docker-compose up -d --build'
+          // sh 'docker-compose up -d --build'
+          sh "npm test -- --watchAll=false"
       }
     }
 

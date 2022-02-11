@@ -16,7 +16,7 @@ COPY package-lock.json ./
 FROM base as test
 RUN npm install -g
 COPY . .
-CMD [ "npm", "test", "--", "--watchAll=false" ]
+# CMD [ "npm", "test", "--", "--watchAll=false" ]
 
 # FROM base as prod
 # RUN npm ci --production
