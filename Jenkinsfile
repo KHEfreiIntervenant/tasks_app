@@ -14,8 +14,8 @@ pipeline {
   stages {
     stage('Building and Running test image') {
       steps{
-          sh 'docker build -p "8081:8081" . -t task_manager_react_app'
-          sh 'docker run task_manager_react_app'
+          sh 'docker build . -t task_manager_react_app'
+          sh 'docker run -p "8081:8081" task_manager_react_app'
           // sh 'docker-compose up -d --build'
           // sh "npm test -- --watchAll=false"
       }
