@@ -28,7 +28,7 @@ pipeline {
       }
     }
     
-    stage('Deploy approval'){
+    stage('Deploy approval (acceptance testing)'){
       steps{
         input "Deploy to prod?"
       }
