@@ -24,7 +24,13 @@ pipeline {
     }
     stage('Release') {
       steps{
-          sh 'The app is to be released here'
+          sh 'echo The app is to be released here'
+      }
+    }
+    
+    stage('Deploy approval'){
+      steps{
+        input "Deploy to prod?"
       }
     }
 
