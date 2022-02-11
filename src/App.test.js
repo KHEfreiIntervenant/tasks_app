@@ -9,24 +9,23 @@ const assert = require("assert");
 let driver;
 let vars;
 
-it("Unit Test, check if component renders on Screen", async () => {
-	expect(true).toBe(true);
+it("End to End Test, adding tasks using selenium", async () => {
 	// webdriver.Builder().forBrowser("chrome").build();
 
-	// driver = await new Builder().forBrowser("chrome").build();
-	// await driver.get("http://localhost:8081/add");
-	// await driver.manage().window().setRect({ width: 1522, height: 812 });
-	// await driver.findElement(By.id("title")).click();
-	// await driver.findElement(By.id("title")).sendKeys("title");
-	// await driver.findElement(By.id("description")).click();
-	// await driver.findElement(By.id("description")).sendKeys("description");
-	// // await driver.findElement(By.css("html")).click()
-	// await driver.findElement(By.css(".btn")).click();
-	// // await driver.findElement(By.css(".btn")).click()
-	// // {
-	// //   const element = await driver.findElement(By.css(".btn"))
-	// //   await driver.actions({ bridge: true }).moveToElement(element).perform()
-	// // }
-	// // await driver.findElement(By.linkText("Tasks")).click()
-	// await driver.close();
+	driver = await new Builder().forBrowser("chrome").build();
+	await driver.get("http://localhost:8081/add");
+	await driver.manage().window().setRect({ width: 1522, height: 812 });
+	await driver.findElement(By.id("title")).click();
+	await driver.findElement(By.id("title")).sendKeys("title");
+	await driver.findElement(By.id("description")).click();
+	await driver.findElement(By.id("description")).sendKeys("description");
+	// await driver.findElement(By.css("html")).click()
+	await driver.findElement(By.css(".btn")).click();
+	// await driver.findElement(By.css(".btn")).click()
+	// {
+	//   const element = await driver.findElement(By.css(".btn"))
+	//   await driver.actions({ bridge: true }).moveToElement(element).perform()
+	// }
+	// await driver.findElement(By.linkText("Tasks")).click()
+	await driver.close();
 });
