@@ -1,4 +1,4 @@
-FROM node:17.3.0
+FROM node:17.3.0 as base
 
 # set working directory
 WORKDIR /app
@@ -9,10 +9,25 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
+
+
+
+
+FROM base as test
 RUN npm install -g
+COPY . .
+CMD [ "npm", "test", "--", "--watchAll=false" ]
 
-# add app
-COPY . ./app
+# FROM base as prod
+# RUN npm ci --production
+# COPY . .
+# CMD [ "node", "server.js" ]
 
-# start app
-CMD ["npm", "start"]
+
+
+
+# # add app
+# COPY . ./app
+
+# # start app
+# CMD ["npm", "start"]
