@@ -5,7 +5,6 @@ import AddTask from "../add-task.component";
 
 it("Unit Test, check if component renders on Screen", async () => {
 	const { findByRole } = render(<AddTask />);
-				      expect(true).toBe(false);
 	expect(await findByRole("button", { type: "submit" })).toBeEnabled();
 });
 
