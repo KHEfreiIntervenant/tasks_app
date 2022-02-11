@@ -22,6 +22,11 @@ pipeline {
           sh 'docker run -p "8081:8081" task_manager_react_app'
       }
     }
+    stage('Release') {
+      steps{
+          sh 'The app is to be released here'
+      }
+    }
 
 //     stage('Run tests') {
 //       steps{
