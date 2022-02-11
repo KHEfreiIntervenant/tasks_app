@@ -16,6 +16,7 @@ COPY package-lock.json ./
 FROM base as test
 RUN npm install
 RUN npm install -g
+RUN npm install --save-dev @testing-library/react
 COPY . .
 # CMD [ "npm", "test", "--", "--watchAll=false" ]
 
