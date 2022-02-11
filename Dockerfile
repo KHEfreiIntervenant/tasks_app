@@ -14,7 +14,7 @@ COPY package-lock.json ./
 
 
 FROM base as test
-RUN npm install -g
+RUN npm install
 COPY . .
 # CMD [ "npm", "test", "--", "--watchAll=false" ]
 
